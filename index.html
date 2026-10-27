@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annual Plan 2027 - Psychology - Colegio Montano</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f6f9;
+            color: #2d3748;
+        }
+
+        :root {
+            --cm-blue-primary: #1F3C88;
+            --cm-blue-secondary: #3F72AF;
+            --cm-white: #FFFFFF;
+            --cm-yellow-accent: #F2C94C;
+        }
+
+        .bg-cm-primary { background-color: var(--cm-blue-primary); }
+        .bg-cm-secondary { background-color: var(--cm-blue-secondary); }
+        .bg-cm-accent { background-color: var(--cm-yellow-accent); }
+        .text-cm-primary { color: var(--cm-blue-primary); }
+        .text-cm-secondary { color: var(--cm-blue-secondary); }
+        .text-cm-accent { color: var(--cm-yellow-accent); }
+        .border-cm-secondary { border-color: var(--cm-blue-secondary); }
+
+        .tab-button {
+            transition: all 0.25s ease-in-out;
+            border-bottom: 4px solid transparent;
+        }
+
+        .tab-button.active {
+            background-color: var(--cm-yellow-accent);
+            color: #1F3C88;
+            font-weight: 700;
+            border-bottom-color: #1F3C88;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-button:hover:not(.active) {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: #FFFFFF;
+        }
+
+        .content-card {
+            background-color: #FFFFFF;
+            border-radius: 0.75rem;
+            border-left: 5px solid var(--cm-blue-primary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .content-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .badge-cm {
+            background-color: rgba(31, 60, 136, 0.08);
+            color: var(--cm-blue-primary);
+            border: 1px solid rgba(31, 60, 136, 0.2);
+        }
+
+        .badge-institutional {
+            background-color: rgba(242, 201, 76, 0.25);
+            color: #1F3C88;
+            border: 1px solid var(--cm-yellow-accent);
+            font-weight: 600;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 6px;
+            width: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #e2e8f0;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: var(--cm-blue-secondary);
+            border-radius: 3px;
+        }
+
+        i.emphasis-title {
+            font-style: italic;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col bg-slate-100">
+
+    <!-- TOP HEADER BAR -->
+    <header class="bg-cm-primary text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap justify-between items-center gap-4">
+            <!-- Institutional Logo & Information -->
+            <div class="flex items-center space-x-4">
+                <img src="https://admisiones.colegiomontano.edu.gt/assets/img/logo-cm-blanco.webp" 
+                     alt="Colegio Montano Logo" 
+                     class="h-12 object-contain"
+                     onerror="this.src='https://placehold.co/180x50/1F3C88/FFFFFF?text=Colegio+Montano'">
+                <div class="border-l border-blue-400/40 pl-4">
+                    <h1 class="text-xl font-bold tracking-wide text-white flex items-center gap-2">
+                        <span>PSYCHOLOGY</span>
+                        <span class="text-xs bg-cm-accent text-cm-primary px-2 py-0.5 rounded-full font-extrabold uppercase">Interactive Dashboard</span>
+                    </h1>
+                    <p class="text-xs text-blue-100 flex flex-wrap gap-x-3 gap-y-1 mt-0.5">
+                        <span><i class="emphasis-title">Grade:</i> 4th High School</span>
+                        <span>•</span>
+                        <span><i class="emphasis-title">Teacher:</i> Miss Elysa López</span>
+                        <span>•</span>
+                        <span><i class="emphasis-title">School Year:</i> 2027</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Fullscreen and Interactive Tools -->
+            <div class="flex items-center space-x-3">
+                <button onclick="toggleFullscreen()" 
+                        id="fullscreenBtn"
+                        class="bg-cm-accent hover:bg-yellow-400 text-cm-primary font-bold px-4 py-2 rounded-lg text-sm flex items-center space-x-2 shadow-md transition duration-200">
+                    <i class="fa-solid font-bold fa-expand"></i>
+                    <span><i class="emphasis-title">Full Screen</i></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- HORIZONTAL TABS NAVIGATION -->
+        <nav class="bg-cm-secondary border-t border-blue-400/30">
+            <div class="max-w-7xl mx-auto px-2">
+                <div class="flex space-x-1 overflow-x-auto custom-scrollbar py-1">
+                    <button onclick="switchTab('tab1')" id="btn-tab1" class="tab-button active px-4 py-2.5 rounded-t-lg text-xs md:text-sm whitespace-nowrap flex items-center space-x-2 text-white">
+                        <i class="fa-solid fa-book-open text-xs"></i>
+                        <span>I) Descriptor</span>
+                    </button>
+                    <button onclick="switchTab('tab2')" id="btn-tab2" class="tab-button px-4 py-2.5 rounded-t-lg text-xs md:text-sm whitespace-nowrap flex items-center space-x-2 text-white">
+                        <i class="fa-solid fa-bullseye text-xs"></i>
+                        <span>II) Objectives</span>
+                    </button>
+                    <button onclick="switchTab('tab3')" id="btn-tab3" class="tab-button px-4 py-2.5 rounded-t-lg text-xs md:text-sm whitespace-nowrap flex items-center space-x-2 text-white">
+                        <i class="fa-solid fa-award text-xs"></i>
+                        <span>III) Competencies</span>
+                    </button>
+                    <button onclick="switchTab('tab4')" id="btn-tab4" class="tab-button px-4 py-2.5 rounded-t-lg text-xs md:text-sm whitespace-nowrap flex items-center space-x-2 text-white">
+                        <i class="fa-solid fa-chart-line text-xs"></i>
+                        <span>IV) Indicators</span>
+                    </button>
+                    <button onclick="switchTab('tab5')" id="btn-tab5" class="tab-button px-4 py-2.5 rounded-t-lg text-xs md:text-sm whitespace-nowrap flex items-center space-x-2 text-white">
+                        <i class="fa-solid fa-chalkboard-user text-xs"></i>
+                        <span>V) Methods</span>
+                    </button>
+                    <button onclick="switchTab('tab6')" id="btn-tab6" class="tab-button px-4 py-2.5 rounded-t-lg text-xs md:text-sm whitespace-nowrap flex items-center space-x-2 text-white">
+                        <i class="fa-solid fa-bookmark text-xs"></i>
+                        <span>VI) Bibliography</span>
+                    </button>
+                    <button onclick="switchTab('tab7')" id="btn-tab7" class="tab-button px-4 py-2.5 rounded-t-lg text-xs md:text-sm whitespace-nowrap flex items-center space-x-2 text-white">
+                        <i class="fa-solid fa-layer-group text-xs"></i>
+                        <span>VII) Contents</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT DASHBOARD AREA -->
+    <main class="flex-grow max-w-7xl w-full mx-auto p-4 md:p-6 my-4">
+
+        <!-- TAB I: COURSE DESCRIPTOR -->
+        <section id="tab1" class="tab-content block space-y-6">
+            <div class="content-card p-6">
+                <div class="flex items-center space-x-3 mb-4">
+                    <div class="p-3 bg-blue-100 text-cm-primary rounded-lg text-xl">
+                        <i class="fa-solid fa-compass"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold text-cm-primary"><i class="emphasis-title">Course Overview and Purpose</i></h2>
+                        <p class="text-xs text-gray-500"><i class="emphasis-title">I) Course Descriptor</i></p>
+                    </div>
+                </div>
+                
+                <p class="text-gray-700 leading-relaxed text-base mb-6">
+                    The Psychology course invites students to discover the principles of psychology as a science while fostering a sense of personal leadership. By exploring historical, chronological, and contextual perspectives, students learn how psychology applies to their individual lives, empowering them to understand their emotions, values, and purpose.
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                        <div class="flex items-center space-x-2 text-cm-primary font-semibold mb-2">
+                            <i class="fa-solid fa-user-gear"></i>
+                            <h4><i class="emphasis-title">Personal Leadership Focus</i></h4>
+                        </div>
+                        <p class="text-sm text-gray-600">
+                            Designed to help students <i class="emphasis-title">Be Proactive</i> by developing self-awareness and emotional intelligence, enabling them to make conscious and constructive choices.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                        <div class="flex items-center space-x-2 text-cm-primary font-semibold mb-2">
+                            <i class="fa-solid fa-flag-checkered"></i>
+                            <h4><i class="emphasis-title">Goal Alignment</i></h4>
+                        </div>
+                        <p class="text-sm text-gray-600">
+                            Empowers students to <i class="emphasis-title">Begin with the End in Mind</i> by setting meaningful goals for personal and academic growth throughout the school year.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB II: GENERAL OBJECTIVES -->
+        <section id="tab2" class="tab-content hidden space-y-6">
+            <div class="content-card p-6">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="p-3 bg-blue-100 text-cm-primary rounded-lg text-xl">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold text-cm-primary"><i class="emphasis-title">General Learning Objectives</i></h2>
+                        <p class="text-xs text-gray-500"><i class="emphasis-title">II) General Objectives</i></p>
+                    </div>
+                </div>
+
+                <div class="grid gap-4 md:grid-cols-2">
+                    <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm flex items-start space-x-3">
+                        <span class="flex-shrink-0 w-8 h-8 bg-cm-primary text-white rounded-full flex items-center justify-center font-bold text-sm">1</span>
+                        <div>
+                            <h3 class="font-bold text-gray-800 text-sm mb-1"><i class="emphasis-title">Evolving Science & Emotional Well-Being</i></h3>
+                            <p class="text-sm text-gray-600">Understand psychology as a historical and evolving science that improves lives by empowering individuals to take charge of their mental and emotional well-being.</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm flex items-start space-x-3">
+                        <span class="flex-shrink-0 w-8 h-8 bg-cm-primary text-white rounded-full flex items-center justify-center font-bold text-sm">2</span>
+                        <div>
+                            <h3 class="font-bold text-gray-800 text-sm mb-1"><i class="emphasis-title">Scientific Method & Everyday Challenges</i></h3>
+                            <p class="text-sm text-gray-600">Apply scientific methods used in psychology to everyday challenges, reflecting the habit of <i class="emphasis-title">Put First Things First</i>.</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm flex items-start space-x-3">
+                        <span class="flex-shrink-0 w-8 h-8 bg-cm-primary text-white rounded-full flex items-center justify-center font-bold text-sm">3</span>
+                        <div>
+                            <h3 class="font-bold text-gray-800 text-sm mb-1"><i class="emphasis-title">Perspectives on Personality</i></h3>
+                            <p class="text-sm text-gray-600">Explore personality from various psychological and philosophical perspectives to better <i class="emphasis-title">Seek First to Understand</i> others and themselves.</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm flex items-start space-x-3">
+                        <span class="flex-shrink-0 w-8 h-8 bg-cm-primary text-white rounded-full flex items-center justify-center font-bold text-sm">4</span>
+                        <div>
+                            <h3 class="font-bold text-gray-800 text-sm mb-1"><i class="emphasis-title">Empathy & Personality Disorders</i></h3>
+                            <p class="text-sm text-gray-600">Learn to recognize and address personality disorders with empathy and professionalism.</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm flex items-start space-x-3 md:col-span-2">
+                        <span class="flex-shrink-0 w-8 h-8 bg-cm-primary text-white rounded-full flex items-center justify-center font-bold text-sm">5</span>
+                        <div>
+                            <h3 class="font-bold text-gray-800 text-sm mb-1"><i class="emphasis-title">Mental Health & Holistic Well-Being</i></h3>
+                            <p class="text-sm text-gray-600">Promote mental health and develop emotional intelligence as tools to <i class="emphasis-title">Sharpen the Saw</i>, ensuring holistic well-being.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB III: COMPETENCIES -->
+        <section id="tab3" class="tab-content hidden space-y-6">
+            <!-- Academic Competencies -->
+            <div class="content-card p-6">
+                <div class="flex items-center space-x-3 mb-4">
+                    <div class="p-3 bg-blue-100 text-cm-primary rounded-lg text-xl">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold text-cm-primary"><i class="emphasis-title">Academic Competencies</i></h2>
+                        <p class="text-xs text-gray-500"><i class="emphasis-title">Subject Specific Core Competencies</i></p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-slate-50 rounded-lg border-l-4 border-cm-secondary">
+                        <p class="text-sm text-gray-700">Reflect on the conceptual foundations of psychology and its personal and social applications, demonstrating a <i class="emphasis-title">Win-Win</i> mindset.</p>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-lg border-l-4 border-cm-secondary">
+                        <p class="text-sm text-gray-700">Compare and contrast psychological schools of thought within historical, cultural, and social contexts to enhance personal and professional awareness.</p>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-lg border-l-4 border-cm-secondary">
+                        <p class="text-sm text-gray-700">Analyze individual differences in personality and apply insights to strengthen interpersonal relationships.</p>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-lg border-l-4 border-cm-secondary">
+                        <p class="text-sm text-gray-700">Use psychological principles to nurture responsible and respectful attitudes toward sexuality and life decisions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soft Skills -->
+            <div class="content-card p-6">
+                <div class="flex items-center space-x-3 mb-4">
+                    <div class="p-3 bg-blue-100 text-cm-primary rounded-lg text-xl">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold text-cm-primary"><i class="emphasis-title">Soft Skills & Personal Leadership</i></h2>
+                        <p class="text-xs text-gray-500"><i class="emphasis-title">Course Development Skills</i></p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <div class="p-3 bg-white border border-gray-200 rounded-lg text-xs"><i class="emphasis-title">1. Problem Solving:</i> Develop solutions to case studies, promoting proactive responses.</div>
+                    <div class="p-3 bg-white border border-gray-200 rounded-lg text-xs"><i class="emphasis-title">2. Critical Thinking:</i> Evaluate and compare diverse psychological theories.</div>
+                    <div class="p-3 bg-white border border-gray-200 rounded-lg text-xs"><i class="emphasis-title">3. Creativity:</i> Create engaging presentations that synergize diverse ideas.</div>
+                    <div class="p-3 bg-white border border-gray-200 rounded-lg text-xs"><i class="emphasis-title">4. People Management:</i> Work in groups with defined roles to achieve common goals.</div>
+                    <div class="p-3 bg-white border border-gray-200 rounded-lg text-xs"><i class="emphasis-title">5. Emotional Intelligence:</i> Resolve conflicts using empathy and respect.</div>
+                    <div class="p-3 bg-white border border-gray-200 rounded-lg text-xs"><i class="emphasis-title">6. Judgment & Decision-Making:</i> Align choices with individual values and group goals.</div>
+                    <div class="p-3 bg-white border border-gray-200 rounded-lg text-xs"><i class="emphasis-title">7. Service Orientation:</i> Engage in acts of kindness and support peers.</div>
+                    <div class="p-3 bg-white border border-gray-200 rounded-lg text-xs"><i class="emphasis-title">8. Negotiation:</i> Express ideas and find mutually beneficial solutions.</div>
+                    <div class="p-3 bg-white border border-gray-200 rounded-lg text-xs"><i class="emphasis-title">9. Cognitive Flexibility:</i> Adapt to various learning and teaching methods with openness.</div>
+                </div>
+            </div>
+
+            <!-- Fixed Institutional CM Competencies -->
+            <div class="content-card p-6 border-l-5 border-yellow-400">
+                <div class="flex items-center space-x-3 mb-4">
+                    <div class="p-3 bg-yellow-100 text-cm-primary rounded-lg text-xl">
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold text-cm-primary"><i class="emphasis-title">Institutional CM Competencies (Colegio Montano)</i></h2>
+                        <p class="text-xs text-gray-500"><i class="emphasis-title">Core Institutional Competency Framework</i></p>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap gap-2">
+                    <span class="badge-institutional px-3 py-1.5 rounded-full text-xs"><i class="emphasis-title">Critical thinking and problem solving</i></span>
+                    <span class="badge-institutional px-3 py-1.5 rounded-full text-xs"><i class="emphasis-title">Collaboration and teamwork</i></span>
+                    <span class="badge-institutional px-3 py-1.5 rounded-full text-xs"><i class="emphasis-title">Digital competencies</i></span>
+                    <span class="badge-institutional px-3 py-1.5 rounded-full text-xs"><i class="emphasis-title">Effective communication</i></span>
+                    <span class="badge-institutional px-3 py-1.5 rounded-full text-xs"><i class="emphasis-title">Creativity and innovation</i></span>
+                    <span class="badge-institutional px-3 py-1.5 rounded-full text-xs"><i class="emphasis-title">Autonomous learning and adaptability</i></span>
+                    <span class="badge-institutional px-3 py-1.5 rounded-full text-xs"><i class="emphasis-title">Global and cultural awareness</i></span>
+                    <span class="badge-institutional px-3 py-1.5 rounded-full text-xs"><i class="emphasis-title">Digital ethics and citizenship</i></span>
+                    <span class="badge-institutional px-3 py-1.5 rounded-full text-xs"><i class="emphasis-title">Emotional management and resilience</i></span>
+                    <span class="badge-institutional px-3 py-1.5 rounded-full text-xs"><i class="emphasis-title">Ecological awareness and sustainability</i></span>
+                    <span class="badge-institutional px-3 py-1.5 rounded-full text-xs"><i class="emphasis-title">Leadership roles performance</i></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB IV: ACHIEVEMENT INDICATORS -->
+        <section id="tab4" class="tab-content hidden space-y-6">
+            <div class="content-card p-6">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="p-3 bg-blue-100 text-cm-primary rounded-lg text-xl">
+                        <i class="fa-solid fa-list-check"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold text-cm-primary"><i class="emphasis-title">Achievement Indicators & Evaluation Criteria</i></h2>
+                        <p class="text-xs text-gray-500"><i class="emphasis-title">IV) Achievement Indicators</i></p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Category 1 -->
+                    <div class="border border-gray-200 rounded-lg p-4 bg-slate-50">
+                        <h3 class="font-bold text-cm-primary text-base border-b border-gray-200 pb-2 mb-3 flex items-center space-x-2">
+                            <i class="fa-solid fa-check-double text-cm-secondary"></i>
+                            <span><i class="emphasis-title">Reflect on Psychology's Foundations</i></span>
+                        </h3>
+                        <ul class="space-y-2 text-sm text-gray-600">
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-angle-right text-cm-secondary mt-1"></i>
+                                <span>Identify areas of application in psychology and its impact on life and leadership.</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-angle-right text-cm-secondary mt-1"></i>
+                                <span>Recognize mental processes that enhance proactive behaviors.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Category 2 -->
+                    <div class="border border-gray-200 rounded-lg p-4 bg-slate-50">
+                        <h3 class="font-bold text-cm-primary text-base border-b border-gray-200 pb-2 mb-3 flex items-center space-x-2">
+                            <i class="fa-solid fa-check-double text-cm-secondary"></i>
+                            <span><i class="emphasis-title">Analyze Psychological Schools of Thought</i></span>
+                        </h3>
+                        <ul class="space-y-2 text-sm text-gray-600">
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-angle-right text-cm-secondary mt-1"></i>
+                                <span>Relate theories to personal and societal contexts, reinforcing self-awareness and leadership.</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-angle-right text-cm-secondary mt-1"></i>
+                                <span>Apply learned theories in investigations and projects with a proactive approach.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Category 3 -->
+                    <div class="border border-gray-200 rounded-lg p-4 bg-slate-50">
+                        <h3 class="font-bold text-cm-primary text-base border-b border-gray-200 pb-2 mb-3 flex items-center space-x-2">
+                            <i class="fa-solid fa-check-double text-cm-secondary"></i>
+                            <span><i class="emphasis-title">Understand Personality & Relationships</i></span>
+                        </h3>
+                        <ul class="space-y-2 text-sm text-gray-600">
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-angle-right text-cm-secondary mt-1"></i>
+                                <span>Describe emotional traits and personality components that enhance interpersonal synergy.</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-angle-right text-cm-secondary mt-1"></i>
+                                <span>Demonstrate understanding through collaborative activities and personal growth reflections.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Category 4 -->
+                    <div class="border border-gray-200 rounded-lg p-4 bg-slate-50">
+                        <h3 class="font-bold text-cm-primary text-base border-b border-gray-200 pb-2 mb-3 flex items-center space-x-2">
+                            <i class="fa-solid fa-check-double text-cm-secondary"></i>
+                            <span><i class="emphasis-title">Promote Mental Health & Responsible Behaviors</i></span>
+                        </h3>
+                        <ul class="space-y-2 text-sm text-gray-600">
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-angle-right text-cm-secondary mt-1"></i>
+                                <span>Utilize emotional intelligence for positive relationships, demonstrating <i class="emphasis-title">Think Win-Win</i>.</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-angle-right text-cm-secondary mt-1"></i>
+                                <span>Identify and discuss ethical, cultural, and emotional aspects of life decisions.</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-angle-right text-cm-secondary mt-1"></i>
+                                <span>Cultivate values for future roles in family, community, and professional life.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB V: DIDACTIC METHODS -->
+        <section id="tab5" class="tab-content hidden space-y-6">
+            <!-- Institutional Active Model -->
+            <div class="content-card p-6">
+                <div class="flex items-center space-x-3 mb-4">
+                    <div class="p-3 bg-blue-100 text-cm-primary rounded-lg text-xl">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold text-cm-primary"><i class="emphasis-title">Institutional Didactic Model (Colegio Montano)</i></h2>
+                        <p class="text-xs text-gray-500"><i class="emphasis-title">Active-Collaborative Framework & Double Period (70 Minutes) Structure</i></p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                    <!-- Moment 1 -->
+                    <div class="p-4 bg-white border border-cm-secondary/30 rounded-lg shadow-sm">
+                        <div class="text-xs font-bold text-cm-secondary mb-1 uppercase tracking-wider"><i class="emphasis-title">Moment 1</i></div>
+                        <h4 class="font-bold text-cm-primary text-sm mb-2"><i class="emphasis-title">Motivating Introduction</i></h4>
+                        <p class="text-xs text-gray-600">Activation of prior knowledge through games, energizers, and brainstorming sessions.</p>
+                    </div>
+
+                    <!-- Moment 2 -->
+                    <div class="p-4 bg-white border border-cm-secondary/30 rounded-lg shadow-sm">
+                        <div class="text-xs font-bold text-cm-secondary mb-1 uppercase tracking-wider"><i class="emphasis-title">Moment 2</i></div>
+                        <h4 class="font-bold text-cm-primary text-sm mb-2"><i class="emphasis-title">Individual Work</i></h4>
+                        <p class="text-xs text-gray-600">Development of personal potentialities, skills, self-reflection, and individual abilities.</p>
+                    </div>
+
+                    <!-- Moment 3 -->
+                    <div class="p-4 bg-white border border-cm-secondary/30 rounded-lg shadow-sm">
+                        <div class="text-xs font-bold text-cm-secondary mb-1 uppercase tracking-wider"><i class="emphasis-title">Moment 3</i></div>
+                        <h4 class="font-bold text-cm-primary text-sm mb-2"><i class="emphasis-title">Teamwork</i></h4>
+                        <p class="text-xs text-gray-600">Interaction with defined roles under the motto <i class="emphasis-title">"all for one and one for all"</i>.</p>
+                    </div>
+
+                    <!-- Moment 4 -->
+                    <div class="p-4 bg-white border border-cm-secondary/30 rounded-lg shadow-sm">
+                        <div class="text-xs font-bold text-cm-secondary mb-1 uppercase tracking-wider"><i class="emphasis-title">Moment 4</i></div>
+                        <h4 class="font-bold text-cm-primary text-sm mb-2"><i class="emphasis-title">Plenary & Dialogue</i></h4>
+                        <p class="text-xs text-gray-600">Public presentation, Socratic dialogue, synthesis, and prior home readings.</p>
+                    </div>
+                </div>
+
+                <!-- Core Course Methodologies -->
+                <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                    <h3 class="font-bold text-cm-primary text-sm mb-3"><i class="emphasis-title">Key Pedagogical Methodologies</i></h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 text-xs text-gray-700">
+                        <div class="p-3 bg-white rounded border border-gray-200">
+                            <i class="fa-solid fa-cube text-cm-secondary mr-2"></i><i class="emphasis-title">Project-Based Learning (PBL) & Constructivism</i>
+                        </div>
+                        <div class="p-3 bg-white rounded border border-gray-200">
+                            <i class="fa-solid fa-repeat text-cm-secondary mr-2"></i><i class="emphasis-title">Flipped Classroom Method</i>
+                        </div>
+                        <div class="p-3 bg-white rounded border border-gray-200">
+                            <i class="fa-solid fa-folder-open text-cm-secondary mr-2"></i><i class="emphasis-title">Real-Life Case Studies</i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB VI: BIBLIOGRAPHY -->
+        <section id="tab6" class="tab-content hidden space-y-6">
+            <div class="content-card p-6">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="p-3 bg-blue-100 text-cm-primary rounded-lg text-xl">
+                        <i class="fa-solid fa-book"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold text-cm-primary"><i class="emphasis-title">Bibliography & Academic Resources</i></h2>
+                        <p class="text-xs text-gray-500"><i class="emphasis-title">VI) Bibliography</i></p>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <div class="p-4 bg-slate-50 rounded-lg border border-gray-200 flex items-start space-x-3">
+                        <i class="fa-solid fa-link text-cm-secondary mt-1"></i>
+                        <div>
+                            <p class="text-sm font-semibold text-gray-800"><i class="emphasis-title">Canvas Course Digital Resources</i></p>
+                            <p class="text-xs text-gray-500">Colegio Montano Virtual Platform Resources.</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-slate-50 rounded-lg border border-gray-200 flex items-start space-x-3">
+                        <i class="fa-solid fa-book-bookmark text-cm-secondary mt-1"></i>
+                        <div>
+                            <p class="text-sm font-semibold text-gray-800"><i class="emphasis-title">Rathus, S.A. (2010). Psychology: Principles in Practice. Holt McDougal.</i></p>
+                            <p class="text-xs text-gray-500">Main Reference Textbook.</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-slate-50 rounded-lg border border-gray-200 flex items-start space-x-3">
+                        <i class="fa-solid fa-globe text-cm-secondary mt-1"></i>
+                        <div>
+                            <p class="text-sm font-semibold text-gray-800"><i class="emphasis-title">Psychology Today Website</i></p>
+                            <a href="https://www.psychologytoday.com" target="_blank" class="text-xs text-blue-600 underline">https://www.psychologytoday.com</a>
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-slate-50 rounded-lg border border-gray-200 flex items-start space-x-3">
+                        <i class="fa-solid fa-book-open-reader text-cm-secondary mt-1"></i>
+                        <div>
+                            <p class="text-sm font-semibold text-gray-800"><i class="emphasis-title">Sandoval, A.M. Psicobiología. Editorial Idear, Guatemala.</i></p>
+                            <p class="text-xs text-gray-500">Contextual Reference Text.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB VII: CONTENTS -->
+        <section id="tab7" class="tab-content hidden space-y-6">
+            <div class="content-card p-6">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="p-3 bg-blue-100 text-cm-primary rounded-lg text-xl">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold text-cm-primary"><i class="emphasis-title">Annual Sequence of Units & Contents</i></h2>
+                        <p class="text-xs text-gray-500"><i class="emphasis-title">VII) Course Contents Breakdown</i></p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Unit 1 -->
+                    <div class="border border-blue-200 rounded-xl overflow-hidden shadow-sm bg-white">
+                        <div class="bg-cm-primary text-white p-4">
+                            <span class="text-xs font-bold text-yellow-300 uppercase tracking-wider"><i class="emphasis-title">Unit I</i></span>
+                            <h3 class="text-base font-bold"><i class="emphasis-title">Introduction to Psychology</i></h3>
+                        </div>
+                        <div class="p-4">
+                            <ul class="space-y-2 text-sm text-gray-700">
+                                <li class="flex items-center space-x-2">
+                                    <i class="fa-solid fa-circle-dot text-xs text-cm-secondary"></i>
+                                    <span>Definition and purpose</span>
+                                </li>
+                                <li class="flex items-center space-x-2">
+                                    <i class="fa-solid fa-circle-dot text-xs text-cm-secondary"></i>
+                                    <span>Fields of psychology</span>
+                                </li>
+                                <li class="flex items-center space-x-2">
+                                    <i class="fa-solid fa-circle-dot text-xs text-cm-secondary"></i>
+                                    <span>Historical antecedents</span>
+                                </li>
+                                <li class="flex items-center space-x-2">
+                                    <i class="fa-solid fa-circle-dot text-xs text-cm-secondary"></i>
+                                    <span>Key models and perspectives</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Unit 2 -->
+                    <div class="border border-blue-200 rounded-xl overflow-hidden shadow-sm bg-white">
+                        <div class="bg-cm-primary text-white p-4">
+                            <span class="text-xs font-bold text-yellow-300 uppercase tracking-wider"><i class="emphasis-title">Unit II</i></span>
+                            <h3 class="text-base font-bold"><i class="emphasis-title">Research in Psychology</i></h3>
+                        </div>
+                        <div class="p-4">
+                            <ul class="space-y-2 text-sm text-gray-700">
+                                <li class="flex items-center space-x-2">
+                                    <i class="fa-solid fa-circle-dot text-xs text-cm-secondary"></i>
+                                    <span>Scientific methods</span>
+                                </li>
+                                <li class="flex items-center space-x-2">
+                                    <i class="fa-solid fa-circle-dot text-xs text-cm-secondary"></i>
+                                    <span>Experimental and descriptive investigation</span>
+                                </li>
+                                <li class="flex items-center space-x-2">
+                                    <i class="fa-solid fa-circle-dot text-xs text-cm-secondary"></i>
+                                    <span>Tools and instruments for research</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Unit 3 -->
+                    <div class="border border-blue-200 rounded-xl overflow-hidden shadow-sm bg-white">
+                        <div class="bg-cm-primary text-white p-4">
+                            <span class="text-xs font-bold text-yellow-300 uppercase tracking-wider"><i class="emphasis-title">Unit III</i></span>
+                            <h3 class="text-base font-bold"><i class="emphasis-title">Personality and Individual Differences</i></h3>
+                        </div>
+                        <div class="p-4">
+                            <ul class="space-y-2 text-sm text-gray-700">
+                                <li class="flex items-center space-x-2">
+                                    <i class="fa-solid fa-circle-dot text-xs text-cm-secondary"></i>
+                                    <span>Personality, temperament, and character</span>
+                                </li>
+                                <li class="flex items-center space-x-2">
+                                    <i class="fa-solid fa-circle-dot text-xs text-cm-secondary"></i>
+                                    <span>Comparison of theories (e.g., Hippocrates, Jung)</span>
+                                </li>
+                                <li class="flex items-center space-x-2">
+                                    <i class="fa-solid fa-circle-dot text-xs text-cm-secondary"></i>
+                                    <span>Psychological approaches to personality</span>
+                                </li>
+                                <li class="flex items-center space-x-2">
+                                    <i class="fa-solid fa-circle-dot text-xs text-cm-secondary"></i>
+                                    <span>Personality disorders</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Unit 4 -->
+                    <div class="border border-blue-200 rounded-xl overflow-hidden shadow-sm bg-white">
+                        <div class="bg-cm-primary text-white p-4">
+                            <span class="text-xs font-bold text-yellow-300 uppercase tracking-wider"><i class="emphasis-title">Unit IV</i></span>
+                            <h3 class="text-base font-bold"><i class="emphasis-title">Mental Health and Well-being</i></h3>
+                        </div>
+                        <div class="p-4">
+                            <ul class="space-y-2 text-sm text-gray-700">
+                                <li class="flex items-center space-x-2">
+                                    <i class="fa-solid fa-circle-dot text-xs text-cm-secondary"></i>
+                                    <span>Emotional intelligence and mental health</span>
+                                </li>
+                                <li class="flex items-center space-x-2">
+                                    <i class="fa-solid fa-circle-dot text-xs text-cm-secondary"></i>
+                                    <span>Healthy sexuality and responsible choices</span>
+                                </li>
+                                <li class="flex items-center space-x-2">
+                                    <i class="fa-solid fa-circle-dot text-xs text-cm-secondary"></i>
+                                    <span>Understanding and preventing addictions</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-cm-primary text-white text-center py-4 text-xs mt-auto">
+        <p><i class="emphasis-title">Colegio Montano - Educational Excellence and Personal Leadership</i></p>
+        <p class="text-blue-200 mt-1"><i class="emphasis-title">Academic Year 2027 • Psychology Annual Planning</i></p>
+    </footer>
+
+    <script>
+        // Tab switching functionality
+        function switchTab(tabId) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.classList.add('hidden');
+                content.classList.remove('block');
+            });
+
+            // Deactivate all tab buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show selected tab content
+            const selectedContent = document.getElementById(tabId);
+            if (selectedContent) {
+                selectedContent.classList.remove('hidden');
+                selectedContent.classList.add('block');
+            }
+
+            // Activate selected tab button
+            const selectedButton = document.getElementById('btn-' + tabId);
+            if (selectedButton) {
+                selectedButton.classList.add('active');
+            }
+        }
+
+        // Fullscreen toggle functionality
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.log('Error attempting to enable fullscreen:', err.message);
+                });
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+    </script>
+</body>
+</html>
